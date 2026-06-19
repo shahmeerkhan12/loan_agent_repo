@@ -420,11 +420,15 @@ export default function LoanDashboard() {
     setActiveAgent(0);
     setLoanOffer(null);
     setStarted(false);
-
+    setShowLanding(true);
     conversationRef.current = [];
   };
 
   const currentAgent = AGENTS[activeAgent];
+
+  if (showLanding) {
+    return <LandingPage onStart={() => setShowLanding(false)} />;
+  }
 
   return (
     <div style={{ fontFamily: "var(--font-sans)", minHeight: "100vh", background: "var(--color-background-tertiary)", padding: "20px 16px" }}>
